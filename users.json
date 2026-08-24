@@ -1,0 +1,43 @@
+{
+  "1": {
+    "userName": "test1",
+    "password": "password1",
+    "userType": "customer",
+    "accounts": {
+      "account1": {
+        "accountType": "checking",
+        "balance": 45
+      },
+      "account2": {
+        "accountType": "savings",
+        "balance": 0
+      },
+      "account3": {
+        "accountType": "savings",
+        "balance": 0
+      }
+    }
+  },
+  "2": {
+    "userName": "test2",
+    "password": "password2",
+    "userType": "customer",
+    "accounts": {
+      "account1": {
+        "accountType": "checking",
+        "balance": 50
+      },
+      "account2": {
+        "accountType": "savings",
+        "balance": 10
+      }
+    }
+  },
+  "3": {
+    "accountNumber": "3",
+    "userName": "test3",
+    "password": "password3",
+    "userType": "admin",
+    "accounts": {}
+  }
+}
