@@ -50,7 +50,7 @@ export default class Main {
         );
 
       case "admin":
-        return new Admin(userId, user.userName, user.password);
+        return new Admin(userId, user.userName, user.password, users);
 
       default:
         throw new Error(`Unknown user type: ${user.userType}`);
@@ -58,11 +58,9 @@ export default class Main {
   }
 
   saveUser(user, rawUser) {
-    if (!(user instanceof Customer)) {
-      return;
+    if (user instanceof Customer) {
+      rawUser.accounts = user.getAccountData();
     }
-
-    rawUser.accounts = user.getAccountData();
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 2), "utf8");
   }

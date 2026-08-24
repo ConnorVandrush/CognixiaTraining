@@ -1,7 +1,7 @@
 {
   "1": {
-    "userName": "test1",
-    "password": "password1",
+    "userName": "billy",
+    "password": "1234",
     "userType": "customer",
     "accounts": {
       "account1": {
@@ -10,7 +10,7 @@
       },
       "account2": {
         "accountType": "savings",
-        "balance": 0
+        "balance": 220
       },
       "account3": {
         "accountType": "savings",
