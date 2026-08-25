@@ -12,6 +12,10 @@ class TransactionRepository {
   create(data) {
     return Transaction.create(data);
   }
+
+  aggregate(pipeline) {
+    return Transaction.aggregate(pipeline);
+  }
 }
 
 export default new TransactionRepository();

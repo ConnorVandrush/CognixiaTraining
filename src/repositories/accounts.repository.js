@@ -25,12 +25,8 @@ class AccountRepository {
     );
   }
 
-  close(id) {
-    return Account.findByIdAndUpdate(
-      id,
-      { isActive: false, closedAt: new Date() },
-      { new: true },
-    );
+  delete(id) {
+    return Account.findByIdAndDelete(id);
   }
 }
 

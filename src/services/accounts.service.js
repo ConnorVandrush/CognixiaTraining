@@ -5,8 +5,9 @@ import branchRepository from "../repositories/branches.repository.js";
 class AccountService {
   // Create a new account
   async createAccount(data) {
-    const { customerId, branchId, type, initialDeposit = 0 } = data;
+    const { customerId, branchId, type, balance = 0 } = data;
 
+    // Required fields
     if (!customerId || !branchId || !type) {
       return {
         error: true,
@@ -35,19 +36,21 @@ class AccountService {
       };
     }
 
-    if (initialDeposit < 0) {
+    // Validate balance
+    if (balance < 0) {
       return {
         error: true,
         status: 400,
-        message: "Initial deposit cannot be negative",
+        message: "Balance cannot be negative",
       };
     }
 
+    // Create account
     const account = await accountRepository.create({
       customerId,
       branchId,
       type,
-      balance: initialDeposit,
+      balance,
     });
 
     return {
@@ -63,10 +66,12 @@ class AccountService {
 
     let accounts = await accountRepository.findAll();
 
+    // Filter by branch
     if (branch_id) {
       accounts = accounts.filter((a) => String(a.branchId) === branch_id);
     }
 
+    // Filter by minimum balance
     if (min_balance) {
       const min = Number(min_balance);
       if (isNaN(min)) {
@@ -128,6 +133,15 @@ class AccountService {
         error: true,
         status: 400,
         message: "Invalid account ID",
+      };
+    }
+
+    // Prevent negative balance updates
+    if (updates.balance !== undefined && updates.balance < 0) {
+      return {
+        error: true,
+        status: 400,
+        message: "Balance cannot be negative",
       };
     }
 
