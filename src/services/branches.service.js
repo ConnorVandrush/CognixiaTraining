@@ -136,6 +136,11 @@ class BranchService {
       { $sort: { "_id.branchCode": 1, "_id.year": 1, "_id.month": 1 } },
     ]);
 
+    // ⭐ NEW: Proper empty handling
+    if (!results || results.length === 0) {
+      return { error: false, status: 204, data: null };
+    }
+
     return {
       error: false,
       status: 200,

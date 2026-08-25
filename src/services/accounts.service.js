@@ -16,6 +16,16 @@ class AccountService {
       };
     }
 
+    // Validate account type
+    const allowedTypes = ["CHECKING", "SAVINGS"];
+    if (!allowedTypes.includes(type.toUpperCase())) {
+      return {
+        error: true,
+        status: 400,
+        message: "Invalid account type. Allowed: CHECKING, SAVINGS",
+      };
+    }
+
     // Validate customer exists
     const customer = await customerRepository.findById(customerId);
     if (!customer) {
@@ -49,7 +59,7 @@ class AccountService {
     const account = await accountRepository.create({
       customerId,
       branchId,
-      type,
+      type: type.toUpperCase(),
       balance,
     });
 
