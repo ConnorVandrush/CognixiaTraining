@@ -1,0 +1,146 @@
+.headerContainer {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+
+  color: #172033;
+}
+
+/* =========================
+   TOP ROW
+   ========================= */
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 24px 32px 20px;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.name {
+  color: #172033;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* =========================
+   TABS
+   ========================= */
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 0 32px;
+}
+
+.tabButton {
+  position: relative;
+
+  padding: 15px 20px 17px;
+
+  background: transparent;
+  border: none;
+
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.tabButton:hover {
+  color: #1d4ed8;
+  background: #f8fafc;
+}
+
+.active {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.active::after {
+  content: "";
+
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+
+  height: 3px;
+
+  background: #2563eb;
+  border-radius: 3px 3px 0 0;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  .topRow {
+    padding: 20px;
+  }
+
+  .tabs {
+    padding: 0 20px;
+    overflow-x: auto;
+  }
+
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  .tabButton {
+    padding: 13px 16px 15px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+}
+
+.logoutButton {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logoutButton:hover {
+  background: #b71c1c;
+}

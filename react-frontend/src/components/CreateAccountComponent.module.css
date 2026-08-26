@@ -1,0 +1,79 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Labels */
+.form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+.form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d1d1;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.form input:focus {
+  border-color: #2a6df4;
+  outline: none;
+}
+
+/* Create Account button */
+.submitButton {
+  margin-top: 10px;
+  padding: 12px;
+  background: #2a6df4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #1f54c9;
+}
+
+/* Back to login link */
+.registerWrapper {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.registerLink {
+  background: none;
+  border: none;
+  color: #2a6df4;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.registerLink:hover {
+  opacity: 0.7;
+}
+
+.message {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
