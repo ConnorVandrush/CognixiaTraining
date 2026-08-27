@@ -1,6 +1,7 @@
 import branchRepository from "../repositories/branches.repository.js";
 import accountRepository from "../repositories/accounts.repository.js";
 import transactionRepository from "../repositories/transactions.repository.js";
+import customerRepository from "../repositories/customers.repository.js";
 
 class BranchService {
   // POST /branches
@@ -76,6 +77,56 @@ class BranchService {
   }
 
   // DELETE /branches/:id
+  async deleteBranch(id) {
+    if (!id) {
+      return {
+        error: true,
+        status: 400,
+        message: "Invalid branch ID",
+      };
+    }
+
+    // Make sure branch exists
+    const branch = await branchRepository.findById(id);
+
+    if (!branch) {
+      return {
+        error: true,
+        status: 404,
+        message: "Branch not found",
+      };
+    }
+
+    // Find accounts belonging to this branch
+    const accounts = await accountRepository.findByBranchId(id);
+
+    // If there are accounts, the branch has customers
+    if (accounts.length > 0) {
+      return {
+        error: true,
+        status: 409,
+        message: "Cannot delete branch because it has customers.",
+      };
+    }
+
+    // Safe to delete
+    const deleted = await branchRepository.delete(id);
+
+    if (!deleted) {
+      return {
+        error: true,
+        status: 404,
+        message: "Branch not found",
+      };
+    }
+
+    return {
+      error: false,
+      status: 204,
+      data: null,
+    };
+  }
+
   async deactivateBranch(id) {
     if (!id) {
       return { error: true, status: 400, message: "Invalid branch ID" };
@@ -155,6 +206,7 @@ class BranchService {
     const results = await branchRepository.aggregate([
       {
         $project: {
+          _id: 1, // <-- ADD THIS
           branchCode: 1,
           name: 1,
           region: 1,
@@ -163,20 +215,75 @@ class BranchService {
           ratio: {
             $cond: [
               { $eq: ["$directStaffCount", 0] },
-              1, // avoid division by zero
+              1,
               { $divide: ["$contractStaffCount", "$directStaffCount"] },
             ],
           },
         },
       },
-      { $match: { ratio: { $gt: threshold } } },
-      { $sort: { ratio: -1 } },
+      {
+        $match: {
+          ratio: { $gt: threshold },
+        },
+      },
+      {
+        $sort: {
+          ratio: -1,
+        },
+      },
     ]);
 
     return {
       error: false,
       status: 200,
       data: results,
+    };
+  }
+
+  async getBranchCustomers(branchId) {
+    if (!branchId) {
+      return {
+        error: true,
+        status: 400,
+        message: "Invalid branch ID",
+      };
+    }
+
+    // Make sure the branch exists
+    const branch = await branchRepository.findById(branchId);
+
+    if (!branch) {
+      return {
+        error: true,
+        status: 404,
+        message: "Branch not found",
+      };
+    }
+
+    // Find accounts belonging to this branch
+    const accounts = await accountRepository.findByBranchId(branchId);
+
+    // No accounts = no customers at this branch
+    if (accounts.length === 0) {
+      return {
+        error: false,
+        status: 200,
+        data: [],
+      };
+    }
+
+    // Get unique customer IDs
+    const customerIds = [
+      ...new Set(accounts.map((account) => account.customerId.toString())),
+    ];
+
+    // Get only the customers
+    const customers = await customerRepository.findByIds(customerIds);
+
+    return {
+      error: false,
+      status: 200,
+      data: customers,
     };
   }
 }

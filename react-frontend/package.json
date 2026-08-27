@@ -14,7 +14,8 @@
     "framer-motion": "^13.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-redux": "^9.3.0"
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./PersonalInformationComponent.module.css";
 
-import { setCustomerInfo } from "../store/CustomerSlice";
+import { setCustomerInfo } from "../../store/CustomerSlice";
 
 export default function PersonalInformationComponent() {
   const dispatch = useDispatch();

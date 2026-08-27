@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./CustomerHeaderComponent.module.css";
-import { setSelectedTab } from "../store/CustomerSlice";
-import { setHeader, setLoginModal } from "../store/LoginSlice";
+import { setSelectedTab } from "../../store/CustomerSlice";
+import { setHeader, setLoginModal } from "../../store/LoginSlice";
 
 export default function CustomerHeaderComponent() {
   const dispatch = useDispatch();

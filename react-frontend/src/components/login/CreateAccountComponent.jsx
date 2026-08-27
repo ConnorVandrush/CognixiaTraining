@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./CreateAccountComponent.module.css";
 import { useDispatch } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
-import { setLoginModal } from "../store/LoginSlice";
+import { setLoginModal } from "../../store/LoginSlice";
 
 export default function CreateAccountComponent() {
   const dispatch = useDispatch();

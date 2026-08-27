@@ -9,6 +9,12 @@ class CustomerRepository {
     return Customer.findById(id);
   }
 
+  findByIds(ids) {
+    return Customer.find({
+      _id: { $in: ids },
+    });
+  }
+
   findByEmail(email) {
     return Customer.findOne({ email });
   }

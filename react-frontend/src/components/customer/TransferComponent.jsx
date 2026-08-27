@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./TransferComponent.module.css";
 
-import { setAccountsInfo, setTransactions } from "../store/CustomerSlice";
+import { setAccountsInfo, setTransactions } from "../../store/CustomerSlice";
 
 export default function TransferComponent() {
   const accounts = useSelector((state) => state.CustomerSlice.accountsInfo);

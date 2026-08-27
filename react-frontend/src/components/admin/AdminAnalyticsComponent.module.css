@@ -1,0 +1,377 @@
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+  margin-bottom: 1.5rem;
+}
+
+.heading h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.heading p {
+  margin: 0.4rem 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.success {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.cardHeader {
+  margin-bottom: 1.25rem;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.cardHeader p {
+  margin: 0.35rem 0 0;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+/* =========================
+   LOADING / EMPTY
+========================= */
+
+.loading,
+.empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   MONTHLY TRANSFER CHART
+========================= */
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  min-height: 300px;
+  padding: 1rem 0 0;
+  overflow-x: auto;
+}
+
+/* =========================
+   BAR WRAPPER
+========================= */
+
+.barWrapper {
+  flex: 1;
+  min-width: 90px;
+  height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* =========================
+   BAR VALUE
+========================= */
+
+.barValue {
+  margin-bottom: 0.5rem;
+  color: #172033;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* =========================
+   BAR CONTAINER
+========================= */
+
+.barContainer {
+  width: 100%;
+  max-width: 70px;
+  height: 220px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: #f8fafc;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+}
+
+/* =========================
+   BAR
+========================= */
+
+.bar {
+  width: 100%;
+  min-height: 2px;
+
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+
+  border-radius: 6px 6px 0 0;
+}
+
+/* =========================
+   BAR LABEL
+========================= */
+
+.barLabel {
+  margin-top: 0.65rem;
+  color: #6b7280;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =========================
+   STAFF LIST
+========================= */
+
+.staffList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* =========================
+   STAFF ITEM
+========================= */
+
+.staffItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.9rem 1rem;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+/* =========================
+   STAFF MAIN
+========================= */
+
+.staffMain {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.staffMain strong {
+  color: #172033;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.staffMain span {
+  color: #6b7280;
+  font-size: 0.76rem;
+}
+
+/* =========================
+   STAFF RIGHT
+========================= */
+
+.staffRight {
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+/* =========================
+   STAFF RATIO
+========================= */
+
+.staffRatioValue {
+  color: #b91c1c;
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ratioLabel {
+  color: #9ca3af;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .chart {
+    gap: 0.75rem;
+  }
+
+  .barWrapper {
+    min-width: 80px;
+  }
+
+  .staffItem {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .chart {
+    min-height: 260px;
+    padding-top: 0.5rem;
+  }
+
+  .barWrapper {
+    height: 240px;
+    min-width: 75px;
+  }
+
+  .barContainer {
+    height: 180px;
+    max-width: 60px;
+  }
+
+  .barValue {
+    font-size: 0.72rem;
+  }
+
+  .barLabel {
+    font-size: 0.68rem;
+  }
+
+  .staffItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .staffRight {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .ratioLabel {
+    align-self: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .heading {
+    margin-bottom: 1rem;
+  }
+
+  .heading h1 {
+    font-size: 1.45rem;
+  }
+
+  .heading p {
+    font-size: 0.8rem;
+  }
+
+  .card {
+    padding: 0.85rem;
+  }
+
+  .cardHeader h2 {
+    font-size: 0.95rem;
+  }
+
+  .chart {
+    gap: 0.5rem;
+  }
+
+  .barWrapper {
+    min-width: 70px;
+  }
+
+  .barContainer {
+    max-width: 50px;
+  }
+
+  .staffMain strong {
+    font-size: 0.82rem;
+  }
+}

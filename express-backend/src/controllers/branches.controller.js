@@ -50,6 +50,18 @@ class BranchController {
   }
 
   // DELETE /api/v1/branches/:id
+  async deleteBranch(req, res) {
+    const result = await branchService.deleteBranch(req.params.id);
+
+    if (result.error) {
+      return res.status(result.status).json({
+        message: result.message,
+      });
+    }
+
+    return res.status(result.status).send();
+  }
+
   async deactivateBranch(req, res) {
     const result = await branchService.deactivateBranch(req.params.id);
 
@@ -80,6 +92,20 @@ class BranchController {
     }
 
     return res.status(result.status).json(result.data);
+  }
+
+  async getBranchCustomers(req, res) {
+    const result = await branchService.getBranchCustomers(req.params.id);
+
+    if (result.error) {
+      return res.status(result.status).json({
+        message: result.message,
+      });
+    }
+
+    return res.status(result.status).json({
+      data: result.data,
+    });
   }
 }
 

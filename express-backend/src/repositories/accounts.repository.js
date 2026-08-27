@@ -9,12 +9,18 @@ class AccountRepository {
     return Account.findById(id);
   }
 
+  findByBranchId(branchId) {
+    return Account.find({ branchId });
+  }
+
   create(data) {
     return Account.create(data);
   }
 
   update(id, updates) {
-    return Account.findByIdAndUpdate(id, updates, { new: true });
+    return Account.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
   }
 
   updateBalance(id, newBalance) {

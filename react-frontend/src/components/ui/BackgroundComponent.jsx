@@ -1,6 +1,6 @@
 import styles from "./BackgroundComponent.module.css";
 
-import LoginModalComponent from "./LoginModalComponent";
+import LoginModalComponent from "../login/LoginModalComponent";
 
 export default function BackgroundComponent() {
   return (

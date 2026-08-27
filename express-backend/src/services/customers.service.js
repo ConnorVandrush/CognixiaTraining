@@ -202,6 +202,31 @@ class CustomerService {
       };
     }
 
+    const customer = await customerRepository.findById(id);
+
+    if (!customer) {
+      return {
+        error: true,
+        status: 404,
+        message: "Customer not found",
+      };
+    }
+
+    // Check whether customer has any accounts
+    const accounts = await accountRepository.findAll();
+
+    const customerAccounts = accounts.filter(
+      (account) => account.customerId.toString() === id.toString(),
+    );
+
+    if (customerAccounts.length > 0) {
+      return {
+        error: true,
+        status: 409,
+        message: "Cannot delete customer while they have accounts.",
+      };
+    }
+
     const deleted = await customerRepository.delete(id);
 
     if (!deleted) {

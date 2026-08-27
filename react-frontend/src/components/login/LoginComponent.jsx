@@ -2,13 +2,13 @@ import { useState } from "react";
 import styles from "./LoginComponent.module.css";
 import { useDispatch } from "react-redux";
 
-import { setLoginModal, setHeader } from "../store/LoginSlice";
+import { setLoginModal, setHeader } from "../../store/LoginSlice";
 import {
   setCustomerInfo,
   setAccountsInfo,
   setTransactions,
   setSelectedTab,
-} from "../store/CustomerSlice";
+} from "../../store/CustomerSlice";
 
 export default function LoginComponent() {
   const dispatch = useDispatch();
@@ -38,6 +38,7 @@ export default function LoginComponent() {
       });
 
       const data = await res.json();
+      console.log(data);
 
       if (!res.ok) {
         setError(data.message || "Login failed");
@@ -53,11 +54,14 @@ export default function LoginComponent() {
       dispatch(setAccountsInfo(data.accounts));
       dispatch(setTransactions(data.transactions));
 
-      // Set header to logged-in customer
-      dispatch(setHeader(data.customer));
-
-      // Default dashboard tab
-      dispatch(setSelectedTab("accounts"));
+      // ⭐ ROLE‑AWARE HEADER
+      if (data.customer.role === "admin") {
+        dispatch(setHeader({ ...data.customer, role: "admin" }));
+        dispatch(setSelectedTab("branches")); // default admin tab
+      } else {
+        dispatch(setHeader({ ...data.customer, role: "customer" }));
+        dispatch(setSelectedTab("accounts")); // default customer tab
+      }
 
       // Close modal
       dispatch(setLoginModal(null));
@@ -70,16 +74,10 @@ export default function LoginComponent() {
 
   return (
     <>
-      {/* =========================
-          APP TITLE
-      ========================== */}
       <div className={styles.appTitle}>
         <h1>The Banking App</h1>
       </div>
 
-      {/* =========================
-          LOGIN FORM
-      ========================== */}
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>Email</label>
         <input

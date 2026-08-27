@@ -1,0 +1,959 @@
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+  box-sizing: border-box;
+  color: #1f2937;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.heading {
+  margin-bottom: 24px;
+}
+
+.heading h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.heading p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.message {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.success {
+  color: #166534;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.error {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+/* =========================
+   CREATE CUSTOMER
+========================= */
+
+.createSection {
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.createToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem 1.25rem;
+
+  border: 0;
+  background: #ffffff;
+
+  color: #4f46e5;
+
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.createToggle:hover {
+  background: #f9fafb;
+}
+
+.createToggle span:last-child {
+  font-size: 0.65rem;
+  color: #6b7280;
+}
+
+/* =========================
+   CREATE FORM
+========================= */
+
+.createForm {
+  overflow: hidden;
+
+  margin-top: 10px;
+  padding: 22px;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.035);
+}
+
+.createForm h2 {
+  margin: 0 0 18px;
+
+  color: #111827;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.formItem,
+.formItemFull {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formItemFull {
+  grid-column: 1 / -1;
+}
+
+.formItem label,
+.formItemFull label {
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.formItem input,
+.formItemFull input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formItem input:focus,
+.formItemFull input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.formItem input::placeholder,
+.formItemFull input::placeholder {
+  color: #9ca3af;
+}
+
+.formItem input:disabled,
+.formItemFull input:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   FORM ACTIONS
+========================= */
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+.cancelButton,
+.saveButton {
+  padding: 9px 15px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.cancelButton {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.cancelButton:hover {
+  background: #f8fafc;
+}
+
+.saveButton {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.saveButton:hover {
+  background: #1d4ed8;
+}
+
+.cancelButton:disabled,
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+  padding: 40px;
+
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* =========================
+   NO CUSTOMERS
+========================= */
+
+.noCustomers {
+  padding: 32px;
+
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #6b7280;
+  text-align: center;
+}
+
+.noCustomers h2 {
+  margin: 0 0 6px;
+
+  color: #374151;
+  font-size: 17px;
+}
+
+.noCustomers p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* =========================
+   CUSTOMER LIST
+========================= */
+
+.customerList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================
+   CUSTOMER CARD
+========================= */
+
+.customer {
+  overflow: hidden;
+
+  border: 1px solid #dbe3ec;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.customer:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.055);
+}
+
+/* =========================
+   CUSTOMER HEADER
+========================= */
+
+.customerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 17px 18px;
+}
+
+/* =========================
+   CUSTOMER BUTTON
+========================= */
+
+.customerButton {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.customerButton:hover {
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.customerButton > div {
+  min-width: 0;
+}
+
+.customerButton h2 {
+  margin: 0;
+
+  color: #111827;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.customerButton span {
+  display: block;
+
+  margin-top: 4px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.chevron {
+  flex-shrink: 0;
+
+  margin-left: 16px;
+
+  color: #64748b;
+  font-size: 10px;
+}
+
+/* =========================
+   CUSTOMER ACTIONS
+========================= */
+
+.customerActions {
+  display: flex;
+  align-items: center;
+
+  margin-left: 16px;
+}
+
+.deleteButton,
+.deleteDisabled {
+  padding: 7px 12px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.deleteButton {
+  border: 1px solid #fecaca;
+  background: #fff7f7;
+  color: #dc2626;
+
+  cursor: pointer;
+}
+
+.deleteButton:hover:not(:disabled) {
+  border-color: #fca5a5;
+  background: #fee2e2;
+}
+
+.deleteButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.deleteDisabled {
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  color: #9ca3af;
+
+  cursor: not-allowed;
+}
+
+/* =========================
+   CUSTOMER DETAILS
+========================= */
+
+.customerDetails {
+  overflow: hidden;
+
+  border-top: 1px solid #e5e7eb;
+  background: #fafbfc;
+}
+
+/* =========================
+   CUSTOMER INFORMATION
+========================= */
+
+.infoSection {
+  padding: 20px 18px;
+}
+
+.infoSection h3 {
+  margin: 0 0 14px;
+
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+
+  padding: 11px 12px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.infoItem span {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.infoItem strong {
+  overflow-wrap: anywhere;
+
+  color: #1f2937;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.active {
+  color: #15803d !important;
+}
+
+.inactive {
+  color: #dc2626 !important;
+}
+
+/* =========================
+   ACCOUNTS
+========================= */
+
+.accountSection {
+  padding: 20px 18px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.accountHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.accountHeader h3 {
+  margin: 0;
+
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.accountHeader p {
+  margin: 4px 0 0;
+
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.accountCount {
+  min-width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: 0 7px;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================
+   ACCOUNT LIST
+========================= */
+
+.accountList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*
+   Account is now a button so the entire
+   account row can be clicked to navigate
+   to the Accounts tab.
+*/
+
+.account {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.account:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.035);
+}
+
+.account:focus-visible {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   ACCOUNT MAIN
+========================= */
+
+.accountMain {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.accountMain strong {
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.accountMain span {
+  overflow-wrap: anywhere;
+
+  color: #64748b;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  font-size: 11px;
+}
+
+/* =========================
+   ACCOUNT RIGHT
+========================= */
+
+.accountRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-left: 15px;
+}
+
+.accountRight strong {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.accountRight span {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================
+   ACCOUNT STATES
+========================= */
+
+.noAccounts,
+.loadingAccounts {
+  padding: 20px;
+
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #6b7280;
+  font-size: 13px;
+  text-align: center;
+}
+
+.loadingAccounts {
+  border-style: solid;
+}
+
+/* =========================
+   CUSTOMER ID SEARCH
+========================= */
+
+.searchSection {
+  margin-bottom: 1.5rem;
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.6rem;
+}
+
+.searchHeader h3 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 0.95rem;
+}
+
+.searchHeader p {
+  margin: 0.25rem 0 0;
+
+  color: #6b7280;
+  font-size: 0.78rem;
+}
+
+.searchCount {
+  color: #6b7280;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+/* =========================
+   SEARCH INPUT
+========================= */
+
+.searchInputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+
+  /*
+    Extra right padding leaves room
+    for the circular clear button.
+  */
+  padding: 0.9rem 3.25rem 0.9rem 1rem;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  color: #172033;
+  font-size: 0.85rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchInput:focus {
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.08);
+}
+
+/* =========================
+   CLEAR SEARCH
+========================= */
+
+/*
+   Matches the branches component clear
+   button style: small circular X button
+   positioned inside the search field.
+*/
+
+.clearSearch {
+  position: absolute;
+
+  top: 50%;
+  right: 0.75rem;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  padding: 0;
+
+  background: #f3f4f6;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+
+  color: #6b7280;
+
+  font-size: 1.1rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.clearSearch:hover {
+  background: #e5e7eb;
+  color: #172033;
+}
+
+.clearSearch:focus-visible {
+  outline: none;
+
+  border-color: #9ca3af;
+
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .container {
+    padding: 24px;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 18px;
+  }
+
+  .heading h1 {
+    font-size: 26px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formItemFull {
+    grid-column: auto;
+  }
+
+  .customerHeader {
+    padding: 15px;
+  }
+
+  .customerActions {
+    margin-left: 10px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .account {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .accountRight {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 14px;
+  }
+
+  .createForm {
+    padding: 18px;
+  }
+
+  .customerHeader {
+    align-items: flex-start;
+  }
+
+  .customerButton h2 {
+    font-size: 14px;
+  }
+
+  .customerButton span {
+    max-width: 150px;
+  }
+
+  .customerActions {
+    flex-shrink: 0;
+  }
+
+  .deleteButton,
+  .deleteDisabled {
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+
+  .accountSection,
+  .infoSection {
+    padding: 18px 15px;
+  }
+
+  .account {
+    flex-direction: column;
+  }
+
+  .accountRight {
+    width: 100%;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 0;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+  }
+
+  .searchInput {
+    padding-right: 3rem;
+  }
+}

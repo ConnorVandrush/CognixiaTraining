@@ -1,0 +1,757 @@
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.heading {
+  margin-bottom: 2rem;
+}
+
+.heading h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.heading p {
+  margin: 0.5rem 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.message {
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.success {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+
+.error {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+}
+
+/* =========================
+   LOADING / EMPTY
+========================= */
+
+.loading,
+.noBranches {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #6b7280;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.noBranches h2 {
+  margin: 0 0 0.5rem;
+  color: #374151;
+}
+
+.noBranches p {
+  margin: 0;
+}
+
+/* =========================
+   BRANCH LIST
+========================= */
+
+.branchList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.branch {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   BRANCH HEADER
+========================= */
+
+.branchHeader {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: #ffffff;
+}
+
+.branchButton {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.branchButton:hover {
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.branchButton h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.branchButton span {
+  display: block;
+  margin-top: 0.3rem;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.branchHeaderRight {
+  display: flex !important;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0 !important;
+  white-space: nowrap;
+}
+
+.branchHeaderRight > span:first-child {
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.chevron {
+  display: inline-block !important;
+  margin: 0 !important;
+  color: #6b7280 !important;
+  font-size: 0.7rem !important;
+}
+
+/* =========================
+   BRANCH ACTIONS
+========================= */
+
+.branchActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.55rem 0.85rem;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.editButton {
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+}
+
+.editButton:hover {
+  background: #f3f4f6;
+}
+
+.deleteButton {
+  color: #b91c1c;
+  background: #fff;
+  border: 1px solid #fecaca;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.deleteButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================
+   EDIT FORM
+========================= */
+
+.editForm {
+  padding: 1.25rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.editForm h3 {
+  margin: 0 0 1rem;
+  color: #172033;
+  font-size: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formItem label {
+  color: #374151;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.formItem input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.formItem input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.cancelButton,
+.saveButton {
+  padding: 0.65rem 1rem;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelButton {
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+}
+
+.cancelButton:hover {
+  background: #f3f4f6;
+}
+
+.saveButton {
+  color: #ffffff;
+  background: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.saveButton:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   BRANCH DETAILS
+========================= */
+
+.branchDetails {
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+  padding: 1.5rem;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.infoSection {
+  margin-bottom: 1.5rem;
+}
+
+.infoSection h3,
+.customerSection h3 {
+  margin: 0;
+  color: #172033;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.infoItem {
+  padding: 0.9rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.infoItem span {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #6b7280;
+  font-size: 0.72rem;
+}
+
+.infoItem strong {
+  display: block;
+  color: #374151;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   CUSTOMERS
+========================= */
+
+.customerSection {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.customerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.customerHeader p {
+  margin: 0.3rem 0 0;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.customerCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.loadingCustomers,
+.noCustomers {
+  padding: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   CUSTOMER LIST
+========================= */
+
+.customerList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.customerMain {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.customerMain strong {
+  color: #172033;
+  font-size: 0.85rem;
+}
+
+.customerMain span {
+  color: #6b7280;
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.customerInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.active,
+.inactive {
+  font-weight: 600;
+}
+
+.active {
+  color: #15803d;
+}
+
+.inactive {
+  color: #b91c1c;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .branchHeader {
+    flex-direction: column;
+  }
+
+  .branchActions {
+    justify-content: flex-end;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .branchButton {
+    align-items: flex-start;
+  }
+
+  .branchHeaderRight {
+    gap: 0.5rem;
+  }
+
+  .branchActions {
+    width: 100%;
+  }
+
+  .editButton,
+  .deleteButton {
+    flex: 1;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .customer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .customerInfo {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =========================
+   CREATE BRANCH
+========================= */
+
+.createSection {
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.createToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 0;
+  background: #ffffff;
+  color: #4f46e5;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.createToggle:hover {
+  background: #f9fafb;
+}
+
+.createToggle span:last-child {
+  font-size: 0.65rem;
+  color: #6b7280;
+}
+
+/* =========================
+   CREATE FORM
+========================= */
+
+.createForm {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.createForm h2 {
+  margin: 0 0 1.25rem;
+  color: #172033;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formItem label {
+  color: #374151;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.formItem input,
+.formItem select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.formItem input:focus,
+.formItem select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.formItem input:disabled,
+.formItem select:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   FORM ACTIONS
+========================= */
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.cancelButton,
+.saveButton {
+  padding: 0.65rem 1rem;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelButton {
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+}
+
+.cancelButton:hover {
+  background: #f3f4f6;
+}
+
+.saveButton {
+  color: #ffffff;
+  background: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.saveButton:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.saveButton:disabled,
+.cancelButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   EDIT FORM SELECT
+========================= */
+
+.editForm .formItem select {
+  width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+  }
+
+  .formActions button {
+    width: 100%;
+  }
+}
+
+.searchSection {
+  margin-bottom: 20px;
+}
+
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchInput {
+  flex: 1;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.clearSearch {
+  padding: 11px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.clearSearch:hover {
+  background: #d1d5db;
+}

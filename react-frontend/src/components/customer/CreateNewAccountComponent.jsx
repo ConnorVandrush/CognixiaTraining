@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./CreateNewAccountComponent.module.css";
 
-import { setAccountsInfo } from "../store/CustomerSlice";
+import { setAccountsInfo } from "../../store/CustomerSlice";
 
 export default function CreateNewAccountComponent() {
   const dispatch = useDispatch();
