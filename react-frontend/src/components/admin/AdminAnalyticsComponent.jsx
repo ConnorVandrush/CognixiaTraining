@@ -1,10 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+
+import { setSelectedTab, setBranchSearch } from "../../store/AdminSlice";
 
 import styles from "./AdminAnalyticsComponent.module.css";
 
 export default function AdminAnalyticsComponent() {
   const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
 
   const [monthlyTransfers, setMonthlyTransfers] = useState([]);
   const [staffRatioData, setStaffRatioData] = useState([]);
@@ -145,15 +149,6 @@ export default function AdminAnalyticsComponent() {
       return null;
     }
 
-    // Mongo aggregation:
-    //
-    // {
-    //   _id: {
-    //     year: 2026,
-    //     month: 8
-    //   }
-    // }
-
     if (
       item._id &&
       typeof item._id === "object" &&
@@ -226,13 +221,6 @@ export default function AdminAnalyticsComponent() {
       return 0;
     }
 
-    /*
-     * Do NOT use month as the amount.
-     *
-     * The API may return different field names depending
-     * on the aggregation.
-     */
-
     const possibleAmountFields = [
       "totalAmount",
       "totalTransferAmount",
@@ -279,10 +267,6 @@ export default function AdminAnalyticsComponent() {
 
   // =========================
   // NORMALIZED TRANSFERS
-  //
-  // IMPORTANT:
-  // GROUPS MULTIPLE RECORDS
-  // FROM THE SAME MONTH
   // =========================
 
   const transferData = useMemo(() => {
@@ -297,19 +281,6 @@ export default function AdminAnalyticsComponent() {
         return;
       }
 
-      /*
-       * Example:
-       *
-       * 2026 + 8
-       *
-       * becomes:
-       *
-       * "2026-8"
-       *
-       * This means every August 2026 record
-       * goes into the same bar.
-       */
-
       const key = `${year || "unknown"}-${month}`;
 
       if (!grouped[key]) {
@@ -322,15 +293,8 @@ export default function AdminAnalyticsComponent() {
         };
       }
 
-      // Add this record's amount to the month total.
       grouped[key].amount += amount;
     });
-
-    /*
-     * Convert object back to an array.
-     *
-     * Then sort chronologically.
-     */
 
     return Object.values(grouped).sort((a, b) => {
       if (a.year !== b.year) {
@@ -399,19 +363,6 @@ export default function AdminAnalyticsComponent() {
       return null;
     }
 
-    /*
-     * Your MongoDB document has:
-     *
-     * _id: ObjectId("6a8f0a50f73ca6bb7418c406")
-     *
-     * Mongoose normally serializes that to:
-     *
-     * _id: "6a8f0a50f73ca6bb7418c406"
-     *
-     * However, this also handles cases where
-     * _id is returned as an object.
-     */
-
     if (item._id !== undefined && item._id !== null) {
       if (typeof item._id === "string") {
         return item._id;
@@ -474,15 +425,6 @@ export default function AdminAnalyticsComponent() {
       }
     }
 
-    /*
-     * Your staff-ratio endpoint actually returns:
-     *
-     * directStaffCount
-     * contractStaffCount
-     *
-     * So calculate the total if those exist.
-     */
-
     if (
       item.directStaffCount !== undefined &&
       item.contractStaffCount !== undefined
@@ -508,6 +450,21 @@ export default function AdminAnalyticsComponent() {
     }
 
     return Number(ratio).toFixed(2);
+  }
+
+  // =========================
+  // GO TO BRANCH
+  // =========================
+
+  function handleStaffBranchClick(item) {
+    const branchId = getBankId(item);
+
+    if (!branchId) {
+      return;
+    }
+
+    dispatch(setBranchSearch(branchId));
+    dispatch(setSelectedTab("branches"));
   }
 
   // =========================
@@ -583,17 +540,9 @@ export default function AdminAnalyticsComponent() {
 
               return (
                 <div key={item.id} className={styles.barWrapper}>
-                  {/* =========================
-                      VALUE
-                  ========================== */}
-
                   <div className={styles.barValue}>
                     {formatCurrency(item.amount)}
                   </div>
-
-                  {/* =========================
-                      BAR
-                  ========================== */}
 
                   <div className={styles.barContainer}>
                     <motion.div
@@ -611,10 +560,6 @@ export default function AdminAnalyticsComponent() {
                       }}
                     />
                   </div>
-
-                  {/* =========================
-                      MONTH
-                  ========================== */}
 
                   <div className={styles.barLabel}>{item.month}</div>
                 </div>
@@ -653,9 +598,12 @@ export default function AdminAnalyticsComponent() {
               const bankId = getBankId(item);
 
               return (
-                <motion.div
+                <motion.button
                   key={bankId || index}
+                  type="button"
                   className={styles.staffItem}
+                  onClick={() => handleStaffBranchClick(item)}
+                  disabled={!bankId}
                   initial={{
                     opacity: 0,
                     y: 8,
@@ -692,7 +640,7 @@ export default function AdminAnalyticsComponent() {
 
                     <span className={styles.ratioLabel}>Ratio</span>
                   </div>
-                </motion.div>
+                </motion.button>
               );
             })}
           </div>

@@ -222,9 +222,13 @@
 }
 
 .staffMain strong {
-  color: #172033;
   font-size: 0.85rem;
   font-weight: 700;
+  color: blue;
+}
+
+.staffMain strong:hover {
+  text-decoration: underline;
 }
 
 .staffMain span {

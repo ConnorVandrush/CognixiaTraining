@@ -436,8 +436,12 @@
 }
 
 .customerMain strong {
-  color: #172033;
+  color: blue;
   font-size: 0.85rem;
+}
+
+.customerMain strong:hover {
+  text-decoration: underline;
 }
 
 .customerMain span {

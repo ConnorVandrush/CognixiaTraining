@@ -459,19 +459,10 @@ export default function AdminCustomersComponent() {
       </div>
 
       {/* =========================
-          CUSTOMER ID SEARCH
-      ========================== */}
+    CUSTOMER ID SEARCH
+========================== */}
 
       <div className={styles.searchSection}>
-        <div className={styles.searchHeader}>
-          {customerSearch?.trim() && (
-            <span className={styles.searchCount}>
-              {filteredCustomers.length}{" "}
-              {filteredCustomers.length === 1 ? "customer" : "customers"}
-            </span>
-          )}
-        </div>
-
         <div className={styles.searchInputWrapper}>
           <input
             type="text"
@@ -479,17 +470,15 @@ export default function AdminCustomersComponent() {
             onChange={handleCustomerSearch}
             placeholder="Search by customer ID..."
             className={styles.searchInput}
-            aria-label="Search customers by customer ID"
           />
 
           {customerSearch && (
             <button
               type="button"
-              className={styles.clearSearchButton}
+              className={styles.clearSearch}
               onClick={clearCustomerSearch}
-              aria-label="Clear customer search"
             >
-              ×
+              Clear
             </button>
           )}
         </div>

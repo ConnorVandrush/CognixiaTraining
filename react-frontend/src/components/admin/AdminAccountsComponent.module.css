@@ -32,19 +32,26 @@
 ========================= */
 
 .searchSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   width: 100%;
   margin-bottom: 24px;
 }
 
 .searchInputWrapper {
-  position: relative;
+  flex: 1;
+  min-width: 0;
   width: 100%;
 }
 
 .searchInput {
   width: 100%;
   height: 44px;
-  padding: 0 90px 0 14px;
+
+  padding: 0 14px;
+
   box-sizing: border-box;
 
   border: 1px solid #d1d5db;
@@ -70,45 +77,41 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Exact branch-style clear button */
-
 .clearSearch {
-  position: absolute;
-  top: 50%;
-  right: 8px;
+  flex-shrink: 0;
 
-  transform: translateY(-50%);
+  height: 44px;
+  padding: 0 16px;
 
-  height: 30px;
-  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
 
-  border: none;
-  border-radius: 6px;
-
-  background: #f3f4f6;
+  background: #ffffff;
   color: #374151;
 
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
 
   transition:
     background-color 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease;
 }
 
 .clearSearch:hover {
-  background: #e5e7eb;
+  background: #f9fafb;
+  border-color: #9ca3af;
   color: #111827;
 }
 
 .clearSearch:active {
-  background: #d1d5db;
+  background: #f3f4f6;
 }
 
 /* =========================
-   MESSAGE
+   MESSAGES
 ========================= */
 
 .message {
@@ -868,5 +871,9 @@
 
   .formActions button {
     width: 100%;
+  }
+
+  .searchInput {
+    padding-right: 90px;
   }
 }

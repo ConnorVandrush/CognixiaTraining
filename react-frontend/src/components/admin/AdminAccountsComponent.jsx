@@ -580,19 +580,10 @@ export default function AdminAccountsComponent() {
       </div>
 
       {/* =========================
-          ACCOUNT SEARCH
-      ========================== */}
+    ACCOUNT SEARCH
+========================= */}
 
       <div className={styles.searchSection}>
-        <div className={styles.searchHeader}>
-          {accountSearch?.trim() && (
-            <span className={styles.searchCount}>
-              {filteredAccounts.length}{" "}
-              {filteredAccounts.length === 1 ? "account" : "accounts"}
-            </span>
-          )}
-        </div>
-
         <div className={styles.searchInputWrapper}>
           <input
             type="text"
@@ -602,17 +593,17 @@ export default function AdminAccountsComponent() {
             className={styles.searchInput}
             aria-label="Search accounts by account ID"
           />
-
-          {accountSearch && (
-            <button
-              type="button"
-              className={styles.clearSearch}
-              onClick={clearAccountSearch}
-            >
-              Clear
-            </button>
-          )}
         </div>
+
+        {accountSearch && (
+          <button
+            type="button"
+            className={styles.clearSearch}
+            onClick={clearAccountSearch}
+          >
+            Clear
+          </button>
+        )}
       </div>
 
       {/* =========================
